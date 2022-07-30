@@ -10,13 +10,17 @@ ideaDetails.addEventListener('click', async (ev) => {
 
 export function goToIdeaDetails() {
     showView(document.getElementById('ideaDetails'));
+    
 };
 
 export async function onDetails(ev) {
-    
-    ev.preventDefault();
 
-    const idea = await request('get', `data/ideas/${ev.target.dataset.id}`);
-    ideaDetails.replaceChildren(createDetails(idea));
-    showView(ideaDetails);
+    if (ev.target.tagName == 'A') {
+        ev.preventDefault();
+
+        const idea = await request('get', `data/ideas/${ev.target.dataset.id}`);
+        ideaDetails.replaceChildren(createDetails(idea));
+        showView(ideaDetails);
+    }
+
 }

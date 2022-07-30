@@ -1,5 +1,6 @@
 import { request } from "./api.js";
 import { showView } from "./dom.js";
+import { goToSignIn } from "./signin.js";
 import { userNav } from "./util.js";
 const registerView = document.getElementById('register');
 const form = registerView.querySelector('form')
@@ -8,11 +9,13 @@ form.addEventListener('submit', onSubmit);
 //sign-in redirect
 form.querySelector('a').addEventListener('click', (ev) => {
     ev.preventDefault();
-    showView(document.getElementById('signIn'));
+    goToSignIn();
 })
 
 export function goToRegister(){
     showView(registerView);
+    //make nav button active
+    document.querySelector(`a[href="/register"]`).parentElement.classList.add('active');
 };
 
 async function onSubmit(ev){

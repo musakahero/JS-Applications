@@ -9,3 +9,9 @@ export function userNav(){
         document.querySelectorAll('.guest').forEach(e => e.style.display = 'none');
     }
 }
+
+export function loadingBar(section){
+    let p = document.createElement('p');
+    p.textContent = 'Brainstorming, please wait...';
+    section.replaceChildren(p);
+};

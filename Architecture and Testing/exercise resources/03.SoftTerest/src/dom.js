@@ -2,6 +2,8 @@ import { request } from "./api.js";
 
 export function hideAllViews() {
     document.querySelectorAll('.view').forEach(e => e.style.display = 'none');
+    //remove active
+    document.querySelectorAll('nav li.active').forEach(e => e.classList.remove('active'));
 };
 
 export function showView(section) {
@@ -23,7 +25,6 @@ export function createDetails(idea) {
     if (user != null && user._id == idea._ownerId) {
         const deleteDiv = createEl('div', '', fragment, 'text-center');
         const deleteBtn = createEl('a', 'Delete', deleteDiv, 'btn detb');
-        console.log(idea._id);
         deleteBtn.dataset.id = idea._id;
         
     }

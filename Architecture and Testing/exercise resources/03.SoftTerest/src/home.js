@@ -6,6 +6,8 @@ const homeView = document.getElementById('home');
 
 export function goToHome(){
     showView(homeView);
+    
+
     homeView.querySelector('a').addEventListener('click', (ev) => {
         ev.preventDefault();
 
