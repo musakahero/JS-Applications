@@ -1,14 +1,10 @@
-export function createHashRouter(main, views){
-    window.addEventListener('hashchange', onChange);
+export function createHashRouter(main, views, start) {
+    window.addEventListener('hashchange',() => start(getName()));
 
-return onChange;
-function onChange(){
-    const name = window.location.hash;
-    const view = views[name];
+    return getName;
 
-    if(typeof view == 'function'){
-        main.innerHTML = view();
+    function getName() {
+        return window.location.hash;
     }
-}
 }
 
